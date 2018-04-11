@@ -1,6 +1,6 @@
 {
-  "name": "bitcore",
-  "main": "./bitcore.min.js",
+  "name": "einrcore",
+  "main": "./einrcore.min.js",
   "version": "0.13.5",
   "homepage": "http://bitcore.io",
   "authors": [
@@ -11,9 +11,9 @@
     "globals"
   ],
   "keywords": [
-    "bitcoin",
-    "bitcore",
-    "btc",
+    "einr",
+    "einrcore",
+    "einr",
     "satoshi"
   ],
   "license": "MIT",

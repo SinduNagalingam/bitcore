@@ -3,15 +3,15 @@ set -e
 set -o pipefail
 
 # add group
-if ! getent group | grep -q "^bitcore:" ; then
-    echo "Creating system group: bitcore"
-    groupadd --system bitcore
+if ! getent group | grep -q "^einrcore:" ; then
+    echo "Creating system group: einrcore"
+    groupadd --system einrcore
 fi
 
 # add user
 if ! getent passwd | grep -q "^bitcore:"; then
-    echo "Creating bitcore system user"
-    useradd --gid "bitcore" --system -m bitcore
+    echo "Creating einrcore system user"
+    useradd --gid "einrcore" --system -m bitcore
 fi
 
 # build nodejs addons
@@ -19,8 +19,8 @@ cd "/usr/opt/bitcore"
 SKIP_BITCOIN_DOWNLOAD=1 npm rebuild
 
 # setup data directory
-mkdir -p "/home/bitcore/.bitcore/data"
-chown -R bitcore:bitcore "/home/bitcore/.bitcore"
+mkdir -p "/home/einrcore/.einrcore/data"
+chown -R bitcore:bitcore "/home/einrcore/.einrcore"
 
 # start bitcore
 if hash service 2> /dev/null; then
@@ -29,9 +29,9 @@ elif hash start 2> /dev/null; then
     start bitcore || echo "bitcore could not be registered or started"
 elif hash systemctl 2> /dev/null; then
     {
-        systemctl enable "bitcore.service" && \
-            systemctl start "bitcore.service"
-    } || echo "bitcore could not be registered or started"
+        systemctl enable "einrcore.service" && \
+            systemctl start "einrcore.service"
+    } || echo "einrcore could not be registered or started"
 else
-    echo 'Your system does not appear to use upstart or systemd, so bitcore could not be started'
+    echo 'Your system does not appear to use upstart or systemd, so einrcore could not be started'
 fi

@@ -3,10 +3,10 @@ set -e
 
 ######### Adjust these variables as needed ################
 
-insightApiDir="${HOME}/source/insight-api"
-insightUIDir="${HOME}/source/insight-ui"
-bitcoreDir="${HOME}/source/bitcore"
-bitcoreNodeDir="${HOME}/source/bitcore-node"
+insightApiDir="${HOME}/source/insight-einr-api"
+insightUIDir="${HOME}/source/insight-einr-ui"
+bitcoreDir="${HOME}/source/einrcore"
+bitcoreNodeDir="${HOME}/source/einrcore-node"
 
 ###########################################################
 
@@ -17,9 +17,9 @@ bump_version () {
 }
 
 set_deps () {
-  sed -i '' -e "s/\"bitcore-node\"\: .*$/\"bitcore-node\"\: \"${shortTag}\",/g" package.json
-  sed -i '' -e "s/\"insight-api\"\: .*$/\"insight-api\"\: \"${shortTag}\",/g" package.json
-  sed -i '' -e "s/\"insight-ui\"\: .*$/\"insight-ui\"\: \"bitpay\/insight\#${tag}\"/g" package.json
+  sed -i '' -e "s/\"einrcore-node\"\: .*$/\"einrcore-node\"\: \"${shortTag}\",/g" package.json
+  sed -i '' -e "s/\"insight-einr-api\"\: .*$/\"insight-einr-api\"\: \"${shortTag}\",/g" package.json
+  sed -i '' -e "s/\"insight-einr-ui\"\: .*$/\"insight-einr-ui\"\: \"bitpay\/insight\#${tag}\"/g" package.json
 }
 
 tag="${1}"
@@ -37,7 +37,7 @@ fi
 #############################################
 function bitcoreNode() {
   echo ""
-  echo "Starting with bitcore-node..."
+  echo "Starting with einrcore-node..."
   sleep 2
   pushd "${bitcoreNodeDir}"
 
@@ -58,7 +58,7 @@ function bitcoreNode() {
   fi
 
   echo ""
-  echo "Committing changes for bitcore-node..."
+  echo "Committing changes for einrcore-node..."
   sleep 2
   git commit -S
 
@@ -187,7 +187,7 @@ function insightUi() {
 #############################################
 function bitcore() {
   echo ""
-  echo "Releasing bitcore..."
+  echo "Releasing einrcore..."
   sleep 2
   pushd "${bitcoreDir}"
 
@@ -210,7 +210,7 @@ function bitcore() {
   fi
 
   echo ""
-  echo "Committing changes for bitcore..."
+  echo "Committing changes for einrcore..."
   sleep 2
   git commit -S
 

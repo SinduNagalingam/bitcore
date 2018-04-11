@@ -37,15 +37,15 @@ function execCmd() {
 function deploy () {
 
   # stop the server
-  cmd="sudo service bitcored stop"
+  cmd="sudo service einrcored stop"
   execCmd
 
   # run npm install -g bitcore@beta
-  cmd="sudo su - bitcore -c 'npm install -g bitcore@beta'"
+  cmd="sudo su - einrcore -c 'npm install -g einrcore@beta'"
   execCmd
 
   # start server
-  cmd="sudo service bitcored start"
+  cmd="sudo service einrcored start"
   execCmd
 
 }
@@ -87,7 +87,7 @@ while IFS='' read -r server || [[ -n "$server" ]]; do
   if [ -z "${logType}" ]; then
     logCmd="sudo journalctl -f"
   else
-    logCmd="sudo tail -f /var/log/upstart/bitcored_testnet_new.log"
+    logCmd="sudo tail -f /var/log/upstart/einrcored_testnet_new.log"
   fi
 
   sshCmd="${ssh}${port} ${host} "
