@@ -12,11 +12,11 @@
     "build-deb": "./scripts/build-deb"
   },
   "bin": {
-    "bitcore": "./bin/bitcore",
-    "bitcored": "./bin/bitcored"
+    "einrcore": "./bin/einrcore",
+    "einrcored": "./bin/einrcored"
   },
   "keywords": [
-    "bitcoin",
+    "einrcoin",
     "transaction",
     "address",
     "p2p",
@@ -33,13 +33,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/bitpay/bitcore.git"
+    "url": "https://github.com/SinduNagalingam/einrcore.git"
   },
   "dependencies": {
-    "bitcore-lib": "5.0.0-beta.1",
-    "bitcore-node": "5.0.0-beta.44",
-    "insight-api": "5.0.0-beta.44",
-    "insight-ui": "bitpay/insight#v5.0.0-beta.44"
+      "einrcore-lib": "^0.13.20",
+      "einrcore-node": "~3.0.4",
+      "insight-api": "^0.4.5",
+      "insight-ui": "^0.4.3"
   },
   "license": "MIT",
   "devDependencies": {
